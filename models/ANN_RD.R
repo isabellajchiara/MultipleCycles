@@ -1,7 +1,6 @@
 library(tidyverse)
 library(keras)
 library(readr)
-library(BMTME)
 
 #BUILD ANN using PYT TP ##
 
@@ -10,7 +9,7 @@ library(BMTME)
 ## create GRM ##
 geno <- as.matrix(TrainingGeno)
 GM <- tcrossprod(geno)/dim(geno)
-LG <- cholesky(GM)
+LG <- GM
 
 Y <- as.matrix(TrainingPheno)
 X = LG
@@ -18,7 +17,7 @@ X = LG
 X <- as.matrix(TrainingGeno)
 Y <- as.matrix(TrainingPheno)
 
-train_index <- sample(1:nrow(Y), 0.75 * nrow(Y))
+train_index <- sample(1:nrow(Y), min(1000, 0.75 * nrow(Y)))
 X_train <- X[train_index, ]
 Y_train <- Y[train_index,]
 

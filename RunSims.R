@@ -1,9 +1,14 @@
 suppressMessages(library(argparse))
 suppressMessages(library(tictoc))
+suppressMessages(library(reticulate))
 suppressMessages(library(doParallel))
 source("ParameterSettings.R")
 source("InterfaceLibrary.R")
 source("FunctionsLibrary.R")
+
+## For the ANN model
+use_virtualenv(Sys.getenv("VIRTUAL_ENV"))
+Sys.setenv(OMP_NUM_THREADS = 1, OPENBLAS_NUM_THREADS = 1) 
 
 DATA_DIR <- "data"
 MODEL_DIR <- "models"

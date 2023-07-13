@@ -38,3 +38,14 @@ if (args$model == "svm"){
         as.matrix(EBV)
     }
 }
+
+if (args$model == "ann"){
+    fileTrain <- "ANN_RD.R"
+    modelLibs <- c("tidyverse","keras","tensorflow","readr","devtools")
+    hasParallelVersion <- FALSE
+
+    getEBV <- function(gen){
+        geno <- as.matrix(pullSegSiteGeno(gen))
+        model_Final %>% predict(geno)
+    }
+}

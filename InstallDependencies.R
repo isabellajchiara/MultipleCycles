@@ -12,9 +12,12 @@ dependencies <- c(
     "foreach",
     "ggplot2",
     "import",
+    "keras",
     "randomForest",
     "ranger",
+    "readr",
     "rrBLUP",
+    "tensorflow",
     "tictoc",
     "tidyverse"
 )
